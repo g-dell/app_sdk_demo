@@ -1,0 +1,314 @@
+[
+    {
+        "name": "Classic Cotton T-Shirt",
+        "description": "A comfortable everyday t-shirt made from 100% organic cotton.",
+        "base_price": 24.99,
+        "attributes": {
+            "material": "Cotton",
+            "style": "Casual"
+        },
+        "variants": [
+            {
+                "sku": "TSHIRT-WHT-S",
+                "inventory_quantity": 50,
+                "attributes": {
+                    "color": "White",
+                    "size": "S"
+                }
+            },
+            {
+                "sku": "TSHIRT-WHT-M",
+                "inventory_quantity": 45,
+                "attributes": {
+                    "color": "White",
+                    "size": "M"
+                }
+            },
+            {
+                "sku": "TSHIRT-WHT-L",
+                "inventory_quantity": 30,
+                "attributes": {
+                    "color": "White",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "TSHIRT-RED-S",
+                "inventory_quantity": 20,
+                "attributes": {
+                    "color": "Red",
+                    "size": "S"
+                }
+            },
+            {
+                "sku": "TSHIRT-RED-M",
+                "inventory_quantity": 25,
+                "attributes": {
+                    "color": "Red",
+                    "size": "M"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Cozy Wool Sweater",
+        "description": "Warm wool sweater perfect for chilly evenings.",
+        "base_price": 59.99,
+        "attributes": {
+            "material": "Wool",
+            "style": "Winter"
+        },
+        "variants": [
+            {
+                "sku": "SWEATER-BLU-M",
+                "inventory_quantity": 15,
+                "attributes": {
+                    "color": "Blue",
+                    "size": "M"
+                }
+            },
+            {
+                "sku": "SWEATER-BLU-L",
+                "inventory_quantity": 20,
+                "attributes": {
+                    "color": "Blue",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "SWEATER-GRN-L",
+                "inventory_quantity": 12,
+                "attributes": {
+                    "color": "Green",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "SWEATER-GRN-XL",
+                "inventory_quantity": 10,
+                "attributes": {
+                    "color": "Green",
+                    "size": "XL"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Performance Running Jacket",
+        "description": "Lightweight windbreaker for your daily run.",
+        "base_price": 45.00,
+        "attributes": {
+            "material": "Polyester",
+            "style": "Sport"
+        },
+        "variants": [
+            {
+                "sku": "JACKET-BLK-S",
+                "inventory_quantity": 10,
+                "attributes": {
+                    "color": "Black",
+                    "size": "S"
+                }
+            },
+            {
+                "sku": "JACKET-BLK-M",
+                "inventory_quantity": 20,
+                "attributes": {
+                    "color": "Black",
+                    "size": "M"
+                }
+            },
+            {
+                "sku": "JACKET-BLK-L",
+                "inventory_quantity": 15,
+                "attributes": {
+                    "color": "Black",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "JACKET-BLK-XL",
+                "inventory_quantity": 5,
+                "attributes": {
+                    "color": "Black",
+                    "size": "XL"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Floral Summer Dress",
+        "description": "Breezy and light dress for sunny days.",
+        "base_price": 39.99,
+        "attributes": {
+            "material": "Cotton",
+            "style": "Casual"
+        },
+        "variants": [
+            {
+                "sku": "DRESS-RED-XS",
+                "inventory_quantity": 10,
+                "attributes": {
+                    "color": "Red",
+                    "size": "XS"
+                }
+            },
+            {
+                "sku": "DRESS-RED-S",
+                "inventory_quantity": 15,
+                "attributes": {
+                    "color": "Red",
+                    "size": "S"
+                }
+            },
+            {
+                "sku": "DRESS-GRN-M",
+                "inventory_quantity": 20,
+                "attributes": {
+                    "color": "Green",
+                    "size": "M"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Formal Oxford Shirt",
+        "description": "Crisp white shirt for formal occasions.",
+        "base_price": 49.99,
+        "attributes": {
+            "material": "Cotton",
+            "style": "Formal"
+        },
+        "variants": [
+            {
+                "sku": "SHIRT-WHT-S",
+                "inventory_quantity": 30,
+                "attributes": {
+                    "color": "White",
+                    "size": "S"
+                }
+            },
+            {
+                "sku": "SHIRT-WHT-M",
+                "inventory_quantity": 40,
+                "attributes": {
+                    "color": "White",
+                    "size": "M"
+                }
+            },
+            {
+                "sku": "SHIRT-WHT-L",
+                "inventory_quantity": 35,
+                "attributes": {
+                    "color": "White",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "SHIRT-BLU-M",
+                "inventory_quantity": 25,
+                "attributes": {
+                    "color": "Blue",
+                    "size": "M"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Urban Denim Jeans",
+        "description": "Classic cut denim trousers.",
+        "base_price": 55.00,
+        "attributes": {
+            "material": "Cotton",
+            "style": "Denim"
+        },
+        "variants": [
+            {
+                "sku": "JEANS-BLU-30",
+                "inventory_quantity": 25,
+                "attributes": {
+                    "color": "Blue",
+                    "size": "M"
+                }
+            },
+            {
+                "sku": "JEANS-BLU-32",
+                "inventory_quantity": 30,
+                "attributes": {
+                    "color": "Blue",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "JEANS-BLK-30",
+                "inventory_quantity": 20,
+                "attributes": {
+                    "color": "Black",
+                    "size": "M"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Sporty Shorts",
+        "description": "Breathable shorts for high intensity workouts.",
+        "base_price": 25.00,
+        "attributes": {
+            "material": "Polyester",
+            "style": "Sport"
+        },
+        "variants": [
+            {
+                "sku": "SHORTS-BLK-S",
+                "inventory_quantity": 20,
+                "attributes": {
+                    "color": "Black",
+                    "size": "S"
+                }
+            },
+            {
+                "sku": "SHORTS-BLK-M",
+                "inventory_quantity": 25,
+                "attributes": {
+                    "color": "Black",
+                    "size": "M"
+                }
+            }
+        ]
+    },
+    {
+        "name": "Streetwear Hoodie",
+        "description": "Oversized hoodie with a modern look.",
+        "base_price": 65.00,
+        "attributes": {
+            "material": "Cotton",
+            "style": "Streetwear"
+        },
+        "variants": [
+            {
+                "sku": "HOODIE-BLK-M",
+                "inventory_quantity": 50,
+                "attributes": {
+                    "color": "Black",
+                    "size": "M"
+                }
+            },
+            {
+                "sku": "HOODIE-BLK-L",
+                "inventory_quantity": 50,
+                "attributes": {
+                    "color": "Black",
+                    "size": "L"
+                }
+            },
+            {
+                "sku": "HOODIE-GRN-L",
+                "inventory_quantity": 30,
+                "attributes": {
+                    "color": "Green",
+                    "size": "L"
+                }
+            }
+        ]
+    }
+]

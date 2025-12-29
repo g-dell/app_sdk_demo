@@ -35,7 +35,7 @@ The MCP servers in this demo highlight how each tool can light up widgets by com
 - `assets/` – Generated HTML, JS, and CSS bundles after running the build step.
 - `shopping_cart_python/` – Python MCP server that demonstrates how `_meta["widgetSessionId"]` keeps `widgetState` in sync across turns for a shopping-cart widget.
 - `pizzaz_server_node/` – MCP server implemented with the official TypeScript SDK.
-- `pizzaz_server_python/` – Python MCP server that returns the Pizzaz widgets.
+- `pizzaz_server_python/` – Server MCP Python per la piattaforma e-commerce modulare, con supporto per profili verticali configurabili e storage persistente (DuckDB in-memory per dev, MotherDuck per prod).
 - `solar-system_server_python/` – Python MCP server for the 3D solar system widget.
 - `kitchen_sink_server_node/` – Node MCP server for the kitchen-sink-lite widget.
 - `kitchen_sink_server_python/` – Python MCP server for the kitchen-sink-lite widget.
@@ -122,14 +122,30 @@ cd pizzaz_server_node
 pnpm start
 ```
 
-### Pizzaz Python server
+### Server MCP Python Modulare (Piattaforma E-commerce)
+
+Questo server implementa la piattaforma e-commerce modulare con supporto per profili verticali configurabili e storage persistente (DuckDB in-memory per lo sviluppo, MotherDuck per la produzione).
+
+**Prerequisiti:**
+Prima di avviare il server Python, assicurati di aver installato le dipendenze principali del progetto e di aver generato gli asset UI:
+1.  **Installare le dipendenze pnpm**: `pnpm install` (dalla root del repository).
+2.  **Generare gli asset UI**: `pnpm run build` (dalla root del repository). Questi creeranno i file `.html`, `.js`, `.css` necessari in `assets/`.
+
+**Configurazione del Profilo Verticale:**
+Il server carica la sua configurazione dal file `pizzaz_server_python/vertical_profile.json`. Assicurati che questo file esista e sia configurato correttamente per il tuo vertical (es. "Vestiti") prima dell'avvio del server.
+
+**Avvio del Server:**
 
 ```bash
+cd pizzaz_server_python
 python -m venv .venv
 source .venv/bin/activate
-pip install -r pizzaz_server_python/requirements.txt
-uvicorn pizzaz_server_python.main:app --port 8000
+pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
 ```
+
+**Nota:** Se stai eseguendo il server su Windows e usi PowerShell, potresti dover usare `.\.venv\Scripts\Activate.ps1` per attivare l'ambiente virtuale. Se incontri problemi con `uvicorn`, assicurati che sia installato nell'ambiente virtuale corretto.
+
 
 ### Authenticated Python server
 
