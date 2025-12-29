@@ -439,13 +439,17 @@ async def _call_tool_request(req: types.CallToolRequest) -> types.ServerResult:
 mcp._mcp_server.request_handlers[types.CallToolRequest] = _call_tool_request
 mcp._mcp_server.request_handlers[types.ReadResourceRequest] = _handle_read_resource
 
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.requests import Request
+from starlette.middleware.trustedhost import TrustedHostMiddleware
+
 # -----------------------------
 # ASGI app (Streamable HTTP)
 # -----------------------------
 app = mcp.streamable_http_app()
 
-from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.requests import Request
+# Fix for "Invalid Host header" / 421 error on Render
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
 
 class RequestContextMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
