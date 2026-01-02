@@ -441,7 +441,7 @@ mcp._mcp_server.request_handlers[types.ReadResourceRequest] = _handle_read_resou
 
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
-from starlette.middleware.trustedhost import TrustedHostMiddleware
+# from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 # -----------------------------
 # ASGI app (Streamable HTTP)
@@ -449,13 +449,14 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 app = mcp.streamable_http_app()
 
 # Fix for "Invalid Host header" / 421 error on Render
-# Remove any existing TrustedHostMiddleware (e.g. from FastMCP default)
-app.user_middleware = [
-    mw for mw in app.user_middleware 
-    if mw.cls != TrustedHostMiddleware
-]
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
+# -------------------------------------------------------
+# AGGRESSIVE FIX: FORCE CLEAR ALL MIDDLEWARE
+# The user requested to remove ALL middleware to solve the 421 error.
+# We only re-add CORS (network access) and RequestContext (app logic).
+# -------------------------------------------------------
+app.user_middleware = []
 
+# 1. Context Middleware (Required for app logic/sessions)
 class RequestContextMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         # Extract session ID from headers (simulating OpenAI or Client passing it)
@@ -477,12 +478,13 @@ class RequestContextMiddleware(BaseHTTPMiddleware):
 
 app.add_middleware(RequestContextMiddleware)
 
+# 2. CORS Middleware (Required for access from any origin)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_methods=["*"],
     allow_headers=["*"],
-    allow_credentials=False,
+    allow_credentials=True,
 )
 
 from starlette.staticfiles import StaticFiles
