@@ -449,6 +449,11 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 app = mcp.streamable_http_app()
 
 # Fix for "Invalid Host header" / 421 error on Render
+# Remove any existing TrustedHostMiddleware (e.g. from FastMCP default)
+app.user_middleware = [
+    mw for mw in app.user_middleware 
+    if mw.cls != TrustedHostMiddleware
+]
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
 
 class RequestContextMiddleware(BaseHTTPMiddleware):
