@@ -22,14 +22,14 @@ Questa sezione aggrega tutte le attività TODO identificate nelle sezioni preced
 *   [x] Creare il primo prototipo del "Vertical Profile" e un meccanismo per la sua lettura (`config_loader.py`).
 *   [x] Preparare l'ambiente di sviluppo per lo storage in-memory (fallback in `main.py`).
 *   [x] Individuare e documentare il database per la produzione (MotherDuck).
-*   [ ] Aggiornare `README.md` con le istruzioni per l'avvio e la configurazione del nuovo progetto.
+*   [x] Aggiornare `README.md` con le istruzioni per l'avvio e la configurazione del nuovo progetto.
 
 ### 8.3 Schema Dati Minimo
 
-*   [x] Finalizzare lo schema dati per le entità principali, includendo tutti i campi necessari (`init_schema.py` per MotherDuck).
+*   [x] Finalizzare lo schema dati per le entità principali, includendo tutti i campi necessari (Schema MotherDuck consolidato).
 *   [x] Definire un esempio di "Vertical Profile" per il vertical "Vestiti" che specifichi gli attributi dinamici per Product e Variant (`vertical_profile.json`).
 *   [x] Implementare i modelli dati nel backend (`pizzaz_server_python`) in modo da supportare lo schema definito e gli attributi dinamici.
-*   [x] Preparare script di popolamento dati di esempio (in-memory per dev e `seed_md.py` per MotherDuck).
+*   [x] Preparare script di popolamento dati di esempio (in-memory per dev; seeding MotherDuck completato/deprecato).
 
 ### 8.4 Design del Layer MCP
 
@@ -44,7 +44,7 @@ Questa sezione aggrega tutte le attività TODO identificate nelle sezioni preced
 *   [x] Configurare il server `pizzaz_server_python` per servire i file statici dalla directory `assets/` (o `archive/Clothes_Dataset` mappato).
 *   [ ] Assicurarsi che il server utilizzi `0.0.0.0` e `os.environ.get("PORT")`.
 *   [x] Implementare la logica nel server per utilizzare la variabile d'ambiente `BASE_URL` per la generazione degli URL degli asset.
-*   [ ] Aggiornare le istruzioni di deploy nel `README.md` con i dettagli specifici per Render (o servizio equivalente).
+*   [x] Aggiornare le istruzioni di deploy nel `README.md` con i dettagli specifici per Render (o servizio equivalente).
 
 ### 8.6 Procedura di Collegamento in ChatGPT
 

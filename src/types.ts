@@ -4,6 +4,7 @@ export type OpenAiGlobals<
   ToolResponseMetadata = UnknownObject,
   WidgetState = UnknownObject
 > = {
+  view: { mode: string; params?: UnknownObject } | null;
   // visuals
   theme: Theme;
 

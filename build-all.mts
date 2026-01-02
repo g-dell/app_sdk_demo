@@ -15,17 +15,11 @@ const PER_ENTRY_CSS_IGNORE = "**/*.module.*".split(",").map((s) => s.trim());
 const GLOBAL_CSS_LIST = [path.resolve("src/index.css")];
 
 const targets: string[] = [
-  "todo",
-  "solar-system",
   "pizzaz",
   "pizzaz-carousel",
   "pizzaz-list",
   "pizzaz-albums",
   "pizzaz-shop",
-  "mixed-auth-search",
-  "mixed-auth-past-orders",
-  "kitchen-sink-lite",
-  "shopping-cart",
 ];
 const builtNames: string[] = [];
 

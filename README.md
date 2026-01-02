@@ -33,13 +33,7 @@ The MCP servers in this demo highlight how each tool can light up widgets by com
 
 - `src/` – Source for each widget example.
 - `assets/` – Generated HTML, JS, and CSS bundles after running the build step.
-- `shopping_cart_python/` – Python MCP server that demonstrates how `_meta["widgetSessionId"]` keeps `widgetState` in sync across turns for a shopping-cart widget.
-- `pizzaz_server_node/` – MCP server implemented with the official TypeScript SDK.
-- `pizzaz_server_python/` – Server MCP Python per la piattaforma e-commerce modulare, con supporto per profili verticali configurabili e storage persistente (DuckDB in-memory per dev, MotherDuck per prod).
-- `solar-system_server_python/` – Python MCP server for the 3D solar system widget.
-- `kitchen_sink_server_node/` – Node MCP server for the kitchen-sink-lite widget.
-- `kitchen_sink_server_python/` – Python MCP server for the kitchen-sink-lite widget.
-- `authenticated_server_python/` – Python MCP server that demonstrates authenticated tool calls.
+
 - `build-all.mts` – Vite build orchestrator that produces hashed bundles for every widget entrypoint.
 
 ### Pizzaz overview
@@ -109,18 +103,10 @@ The assets are exposed at [`http://localhost:4444`](http://localhost:4444) with 
 
 The repository ships several demo MCP servers that highlight different widget bundles:
 
-- **Pizzaz (Node & Python)** – pizza-inspired collection of tools and components
-- **Solar system (Python)** – 3D solar system viewer
-- **Authenticated (Python)** – set of tools that require different levels of OAuth
-- **Kitchen sink lite (Node & Python)** – minimal widget + server pairing that demonstrates tool output, widget state, `callTool`, and host helpers
-- **Shopping cart (Python)** – simple shopping cart widget that demonstrates how to use `widgetSessionId` to keep state between tool calls
+- **Pizzaz (Python)** – piattaforma e-commerce modulare
 
-### Pizzaz Node server
 
-```bash
-cd pizzaz_server_node
-pnpm start
-```
+
 
 ### Server MCP Python Modulare (Piattaforma E-commerce)
 
@@ -132,67 +118,24 @@ Prima di avviare il server Python, assicurati di aver installato le dipendenze p
 2.  **Generare gli asset UI**: `pnpm run build` (dalla root del repository). Questi creeranno i file `.html`, `.js`, `.css` necessari in `assets/`.
 
 **Configurazione del Profilo Verticale:**
-Il server carica la sua configurazione dal file `pizzaz_server_python/vertical_profile.json`. Assicurati che questo file esista e sia configurato correttamente per il tuo vertical (es. "Vestiti") prima dell'avvio del server.
+Il server carica la sua configurazione dal file `mcp-server-motherduck/src/mcp_server_motherduck/vertical_profile.json`. Assicurati che questo file esista e sia configurato correttamente per il tuo vertical (es. "Vestiti") prima dell'avvio del server.
 
 **Avvio del Server:**
 
 ```bash
-cd pizzaz_server_python
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
+```bash
+# From sdk-app root
+cd mcp-server-motherduck
+uv sync
+# Ensure environment variables (like motherduck_token) are set in .env or passed
+uv run mcp-server-motherduck --transport sse --port 8000
+```
 ```
 
 **Nota:** Se stai eseguendo il server su Windows e usi PowerShell, potresti dover usare `.\.venv\Scripts\Activate.ps1` per attivare l'ambiente virtuale. Se incontri problemi con `uvicorn`, assicurati che sia installato nell'ambiente virtuale corretto.
 
 
-### Authenticated Python server
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r authenticated_server_python/requirements.txt
-uvicorn authenticated_python_server.main:app --port 8000
-```
-
-### Solar system Python server
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r solar-system_server_python/requirements.txt
-uvicorn solar-system_server_python.main:app --port 8000
-```
-
-### Kitchen sink lite Node server
-
-```bash
-pnpm --filter kitchen-sink-mcp-node start
-```
-
-### Kitchen sink lite Python server
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r kitchen_sink_server_python/requirements.txt
-uvicorn kitchen_sink_server_python.main:app --port 8000
-```
-
-### Shopping cart Python server
-
-Use this example to learn how `_meta["widgetSessionId"]` can carry `widgetState` between tool calls so the model and widget share the same shopping cart. The widget merges tool responses with prior `widgetState`, and UI actions (like incrementing quantities) feed back into that shared state so the assistant always sees the latest cart.
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r shopping_cart_python/requirements.txt
-uvicorn shopping_cart_python.main:app --port 8000
-```
-
-> [!NOTE]
-> In production you should persist the cart server-side (see [shopping_cart_python/README.md](shopping_cart_python/README.md)), but this demo shows the mechanics of keeping state through `widgetSessionId`.
 
 ---
 
