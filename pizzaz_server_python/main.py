@@ -485,13 +485,13 @@ from starlette.staticfiles import StaticFiles
 # ... existing middleware ...
 
 # Mount static files
-# Assumes running from project root where 'archive' folder exists
-static_dir = os.path.join(os.getcwd(), "archive", "Clothes_Dataset")
-if os.path.exists(static_dir):
-    app.mount("/static/images", StaticFiles(directory=static_dir), name="images")
-    print(f"Serving static images from {static_dir} at /static/images")
-else:
-    print(f"Warning: Static directory {static_dir} not found.")
+# Static files mount removed as dataset is now on Mother Duck
+# static_dir = os.path.join(os.getcwd(), "archive", "Clothes_Dataset")
+# if os.path.exists(static_dir):
+#     app.mount("/static/images", StaticFiles(directory=static_dir), name="images")
+#     print(f"Serving static images from {static_dir} at /static/images")
+# else:
+#     print(f"Warning: Static directory {static_dir} not found.")
 
 # -----------------------------
 # Local run

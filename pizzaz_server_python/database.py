@@ -121,6 +121,16 @@ def get_all_products() -> List[Product]:
                 media=[] # Not in DB schema implies empty
             ))
             
+    # Fetch images
+        # Schema assumption: product_id, url, alt_text
+        try:
+            img_rows = cursor.execute("SELECT url, alt_text FROM images WHERE product_id = ?", [p_id]).fetchall()
+            media_items = [Media(url=row[0], alt_text=row[1], type="image") for row in img_rows]
+        except Exception as e:
+            # Fallback if table doesn't exist or error
+            print(f"Warning: Failed to fetch images for product {p_id}: {e}")
+            media_items = []
+
         products.append(Product(
             id=uuid.UUID(p_id),
             name=name,
@@ -129,7 +139,7 @@ def get_all_products() -> List[Product]:
             base_price=price,
             attributes=attributes,
             variants=variants,
-            media=[], # Not in DB schema
+            media=media_items, 
             category_id=None, # Not in DB schema
             collection_ids=[]
         ))

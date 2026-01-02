@@ -35,6 +35,9 @@ This boots a FastAPI app with uvicorn on `http://127.0.0.1:8000` (equivalently `
 
 Cross-origin requests are allowed so you can drive the server from local tooling or the MCP Inspector. Each tool returns structured content that echoes the requested topping plus metadata that points to the correct Skybridge widget shell, matching the original Pizzaz documentation.
 
+> [!IMPORTANT]
+> **Data Management**: The application is configured to use **MotherDuck** for persistent storage. Local data seeding from the `archive` folder is disabled. Ensure your MotherDuck connection is correctly configured in your environment variables.
+
 ## Next steps
 
 Use these handlers as a starting point when wiring in real data, authentication, or localization support. The structure demonstrates how to:

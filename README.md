@@ -146,6 +146,9 @@ uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
 
 **Nota:** Se stai eseguendo il server su Windows e usi PowerShell, potresti dover usare `.\.venv\Scripts\Activate.ps1` per attivare l'ambiente virtuale. Se incontri problemi con `uvicorn`, assicurati che sia installato nell'ambiente virtuale corretto.
 
+> [!NOTE]
+> Il server è configurato per utilizzare **MotherDuck** per il database. La cartella locale `archive` per il seeding dei dati e le immagini non è più richiesta; i dati sono gestiti direttamente sul cloud DB.
+
 
 ### Authenticated Python server
 
